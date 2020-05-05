@@ -1,10 +1,10 @@
 import React, { Component} from 'react';
 import Task from './TaskComponent';
-const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_ENDPOINT + "declined/");
+// const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_ENDPOINT + "declined/");
 
-socket.onopen = function (e) {
-    // socket.send("Hi")
-};
+// socket.onopen = function (e) {
+//     // socket.send("Hi")
+// };
 
 
 class Tasks extends Component{
@@ -62,24 +62,24 @@ class Tasks extends Component{
      {
         this.getTasks();           
 
-        socket.onmessage = (event) =>{
-            console.log("Here ", event)
-                // this.setState({
+        // socket.onmessage = (event) =>{
+        //     console.log("Here ", event)
+        //         // this.setState({
 
-                // })
-        };
+        //         // })
+        // };
 
-        socket.onclose = function (event) {
-            if (event.wasClean) {
-                console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
-            } else {
-                console.log('[close] Connection died');
-            }
-        };
+        // socket.onclose = function (event) {
+        //     if (event.wasClean) {
+        //         console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+        //     } else {
+        //         console.log('[close] Connection died');
+        //     }
+        // };
 
-        socket.onerror = function (error) {
-            console.log(`[error] ${error.message}`);
-        };
+        // socket.onerror = function (error) {
+        //     console.log(`[error] ${error.message}`);
+        // };
 
      } 
 

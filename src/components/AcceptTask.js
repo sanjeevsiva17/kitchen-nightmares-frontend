@@ -62,8 +62,12 @@ class AcceptTasks extends Component {
                 .catch(error => {
                     console.log(error)
                 });
+            
+                this.setState({
+                    newtask: 'No New Tasks',
+                })
 
-        socket.send("Hi")
+        socket.send(JSON.stringify(this.state.task))
         
     }
 
