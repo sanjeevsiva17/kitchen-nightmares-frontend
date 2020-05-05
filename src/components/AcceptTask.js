@@ -16,6 +16,12 @@ class AcceptTasks extends Component {
     componentDidMount() {        
         socket.onmessage = (event) =>{
             console.log("Here ", event)
+            if (event.data === "No New Tasks"){
+                this.setState({
+                    newtask : "No New Tasks"
+                })
+                socket.send("Hi")
+            }
                 this.setState({
                     newtask: JSON.parse(JSON.parse(event.data))["title"],
                     task : JSON.parse(JSON.parse(event.data))
