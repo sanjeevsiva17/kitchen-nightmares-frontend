@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_ENDPOINT + "dashboard/");
 
 socket.onopen = function (e) {
+    console.log("connected")
     socket.send("Hi")
 };
 
@@ -37,7 +38,8 @@ class AcceptTasks extends Component {
         };
 
         socket.onerror = function (error) {
-            console.log(`[error] ${error.message}`);
+            
+            console.log(`[error] ${JSON.stringify(error)}`);
         };
 
 
